@@ -7,32 +7,50 @@
         <span class="greeting"><span class="mono-accent">$ </span>Hello, world!</span>
       </div>
 
-      <h1 class="hero-name fade-in">
-        Aziz<br /><span class="accent">Dridi</span>
-      </h1>
+      <h1 class="hero-name fade-in">Mohamed Fahd<br /><span class="accent">BenAmara</span></h1>
 
       <div class="hero-role fade-in">
         <span class="role-prefix">I'm a </span>
-        <span class="typed">{{ typedText }}</span><span class="cursor" [class.hide]="!showCursor">|</span>
+        <span class="typed">{{ typedText }}</span
+        ><span class="cursor" [class.hide]="!showCursor">|</span>
       </div>
 
       <p class="hero-desc fade-in">
-        Backend Engineer from Tunisia with 2+ years of experience designing scalable
-        platforms, distributed systems &amp; cloud infrastructure.
-        Delivered solutions serving <span class="accent">1,000+ users</span>.
+        Backend Engineer from Tunisia with 2+ years of experience designing scalable platforms,
+        distributed systems &amp; cloud infrastructure. Delivered solutions serving
+        <span class="accent">1,000+ users</span>.
       </p>
 
       <div class="hero-actions fade-in">
         <button class="btn-primary" (click)="scrollTo('#contact')">
           Get In Touch
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </button>
         <button class="btn-ghost" (click)="scrollTo('#experience')">View Work</button>
       </div>
 
       <div class="hero-meta fade-in">
         <span class="meta-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
           Tunis, Tunisia
         </span>
         <span class="meta-sep">·</span>
@@ -44,10 +62,13 @@
     <div class="hero-code fade-in">
       <div class="code-window">
         <div class="code-header">
-          <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+          <span class="dot-red"></span><span class="dot-yellow"></span
+          ><span class="dot-green"></span>
           <span class="code-filename">developer.ts</span>
         </div>
-        <pre class="code-body"><code><span class="kw">interface</span> <span class="type">Developer</span> &#123;
+        <pre
+          class="code-body"
+        ><code><span class="kw">interface</span> <span class="type">Developer</span> &#123;
   name<span class="op">:</span>       <span class="str">'Aziz Dridi'</span>;
   role<span class="op">:</span>       <span class="str">'Backend Engineer'</span>;
   experience<span class="op">:</span> <span class="num">2</span><span class="op">+</span> <span class="str">'years'</span>;
@@ -68,14 +89,21 @@
 
         <!-- Clickable OS badges -->
         <div class="os-line">
-          <span class="os-indent">    </span>
+          <span class="os-indent"> </span>
           @for (os of osList; track os.name; let last = $last) {
-            <button class="os-badge" (click)="openOs(os)" [style.--os-color]="os.color" [title]="'Click to explore ' + os.label">
+            <button
+              class="os-badge"
+              (click)="openOs(os)"
+              [style.--os-color]="os.color"
+              [title]="'Click to explore ' + os.label"
+            >
               <span class="os-dot"></span>
               <span class="str">'{{ os.label }}'</span>
               <span class="os-hint">↗</span>
             </button>
-            @if (!last) { <span class="op">, </span> }
+            @if (!last) {
+              <span class="op">, </span>
+            }
           }
         </div>
 
