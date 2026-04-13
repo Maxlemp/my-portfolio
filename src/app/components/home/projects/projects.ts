@@ -25,60 +25,112 @@ export class ProjectsComponent {
 
   projects: Project[] = [
     {
-      category: 'Collaboration platform',
-      title: 'PeoplMap',
-      description: 'Immersive video conferencing platform transforming remote work with 3D virtual offices and lifelike avatars. Features AI-powered meeting transcription, seamless calendar integration, and secure sovereign hosting.',
+      category: 'Transport Management System',
+      title: 'FreightSure TMS',
+      description:
+        'Enterprise logistics platform with responsive dashboards for fleet monitoring and real-time analytics. Integrates live IoT data from vehicle tracking devices via WebSocket connections.',
       features: [
-        'Immersive 3D Virtual Offices',
-        'AI Meeting Transcription',
-        'Sovereign & Secure Hosting',
-        'LiveKit & Socket.IO Integration',
+        'Real-time fleet monitoring dashboards',
+        'Live IoT vehicle tracking via WebSockets',
+        'Logistics analytics & reporting',
+        'REST API integration & performance optimization',
       ],
-      technologies: ['React.js', 'Redux', 'Node.js', 'PostgreSQL', 'Docker', 'Keycloak', 'Socket.IO', 'LiveKit'],
+      technologies: [
+        'Angular',
+        'TypeScript',
+        'RxJS',
+        'NgRx',
+        'WebSockets',
+        'REST APIs',
+        'Docker',
+        'Keycloak',
+      ],
+      url: undefined,
+      isPrivate: true,
+    },
+    {
+      category: 'Workflow Management Platform',
+      title: 'Digirecouvrement',
+      description:
+        'Complete workflow management platform for debt recovery business processes. Features customizable workflows, activity tracking, automated reminders, and an interactive dashboard.',
+      features: [
+        'Customizable multi-stage workflows',
+        'Activity tracking & interaction monitoring',
+        'Automated reminders & notifications',
+        'Interactive dashboard & advanced management',
+      ],
+      technologies: [
+        'Angular',
+        'TypeScript',
+        'RxJS',
+        'NgRx',
+        'REST APIs',
+        'Docker',
+        'Keycloak',
+        'NX Monorepo',
+      ],
+      url: undefined,
+      isPrivate: true,
+    },
+    {
+      category: 'Home Services Platform',
+      title: 'Ferplay Services',
+      description:
+        'Multi-service home services platform covering housekeeping, pressing, gardening, furniture cleaning, alterations, and ironing. Features real-time booking and appointment scheduling.',
+      features: [
+        'Multi-service booking workflows',
+        'Real-time appointment scheduling & tracking',
+        'User management & service history',
+        'Production-ready performance optimization',
+      ],
+      technologies: ['Angular', 'TypeScript', 'RxJS', 'REST APIs', 'Tailwind CSS', 'Docker'],
+      url: undefined,
+      isPrivate: true,
+    },
+    {
+      category: 'Real-Time Communication',
+      title: 'Chat Application',
+      description:
+        'Real-time messaging application with instant communication between users via WebSocket connections. Built as an end-of-studies project with full-stack JavaScript.',
+      features: [
+        'Real-time messaging via Socket.io',
+        'WebSocket-based instant communication',
+        'User authentication & session management',
+        'Efficient frontend-backend integration',
+      ],
+      technologies: ['Angular', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io'],
       url: undefined,
       isPrivate: false,
     },
     {
-      category: 'PeoplMap Management System',
-      title: 'PeoplMap Administration',
-      description: 'Management system for PeoplMap platform. Allows admin to manage users, realms, domains, and virtual offices with RBAC-secured access and optimised workflows.',
+      category: 'E-Commerce',
+      title: 'E-Commerce Web & Mobile App',
+      description:
+        'Unified shopping experience across web and mobile platforms using the FakeStore API. Built with React.js and React Native for a consistent cross-platform experience.',
       features: [
-        'User management',
-        'Realm and Domain management',
-        'Virtual office management',
-        'Reduced virtual office creation time by 40%',
+        'Cross-platform web & mobile experience',
+        'FakeStore API integration',
+        'Product browsing & cart management',
+        'Consistent UI across platforms',
       ],
-      technologies: ['Angular', 'Django', 'Django REST Framework', 'PostgreSQL', 'Docker', 'Bash', 'Apache'],
+      technologies: ['React.js', 'React Native', 'JavaScript', 'REST APIs'],
       url: undefined,
-      isPrivate: true,
+      isPrivate: false,
     },
     {
-      category: 'Monitoring System',
-      title: 'BerryChron',
-      description: 'Monitoring system for DigitalBerry. Allows admin to monitor tasks (Certificates, CSRs, and more) and their status alongside microservice health — improving monitoring efficiency by 30%.',
+      category: 'Booking System',
+      title: 'Hotel Management System',
+      description:
+        'Hotel booking system with streamlined reservation management, an intuitive interface, and a robust API architecture built with Spring Boot and Angular.',
       features: [
-        'Real-time monitoring',
-        'Task management',
-        'System status monitoring',
-        'Improved monitoring efficiency by 30%',
+        'Hotel reservation management',
+        'Intuitive booking interface',
+        'Robust REST API architecture',
+        'Spring Boot & Angular integration',
       ],
-      technologies: ['Django', 'Django REST Framework', 'Angular', 'Redis', 'Celery', 'PostgreSQL', 'GitLab', 'Docker'],
+      technologies: ['Spring Boot', 'Angular', 'TypeScript', 'Java', 'REST APIs'],
       url: undefined,
-      isPrivate: true,
-    },
-    {
-      category: 'Microservices Platform',
-      title: 'DigitalBerry Platform',
-      description: 'Scalable microservices architecture spanning authentication, task scheduling, real-time chat with image sharing, cryptography, and notifications — monitored with Prometheus and RedisInsight.',
-      features: [
-        '5+ independent Django microservices',
-        'WebSocket-based chat with image sharing',
-        'Celery task scheduling with Flower dashboard',
-        'JWT + RBAC authentication (OWASP-compliant)',
-      ],
-      technologies: ['Django', 'DRF', 'Redis', 'Celery', 'PostgreSQL', 'Docker', 'Prometheus', 'Git'],
-      url: undefined,
-      isPrivate: true,
+      isPrivate: false,
     },
   ];
 
@@ -87,14 +139,14 @@ export class ProjectsComponent {
 
   prev(): void {
     if (this.canPrev()) {
-      this.activeIndex.update(i => i - 1);
+      this.activeIndex.update((i) => i - 1);
       this.scrollToActive();
     }
   }
 
   next(): void {
     if (this.canNext()) {
-      this.activeIndex.update(i => i + 1);
+      this.activeIndex.update((i) => i + 1);
       this.scrollToActive();
     }
   }

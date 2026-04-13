@@ -17,21 +17,21 @@ export class ContactComponent {
   links = [
     {
       label: 'GitHub',
-      href: 'https://github.com/azizdridi44',
+      href: 'https://github.com/Maxlemp',
       icon: 'github',
-      handle: '@azizdridi44',
+      handle: '@Maxlemp',
     },
     {
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/aziz-dridi',
+      href: 'https://www.linkedin.com/in/mohamed-fahd-benamara/',
       icon: 'linkedin',
-      handle: 'aziz-dridi',
+      handle: 'mohamed-fahd-benamara',
     },
     {
       label: 'Email',
-      href: 'mailto:azizdridi44@gmail.com',
+      href: 'mailto:mohamedfahdbenamara02@gmail.com',
       icon: 'mail',
-      handle: 'azizdridi44@gmail.com',
+      handle: 'mohamedfahdbenamara02@gmail.com',
     },
     {
       label: 'Location',

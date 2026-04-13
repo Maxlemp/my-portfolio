@@ -54,10 +54,10 @@ export class TerminalModalComponent implements OnInit, OnDestroy {
       { type: 'output', label: 'Memory', value: this.os.memory },
       { type: 'blank' },
       { type: 'prompt', text: 'echo $USER' },
-      { type: 'output', value: 'aziz' },
+      { type: 'output', value: 'Fahd' },
       { type: 'blank' },
       { type: 'prompt', text: 'whoami --verbose' },
-      { type: 'output', value: 'Backend Engineer | Cloud Enthusiast | DevOps Explorer' },
+      { type: 'output', value: 'Fullstack Developer | Angular Specialist | DevOps Explorer' },
       { type: 'blank' },
       { type: 'prompt', text: '' },
     ];

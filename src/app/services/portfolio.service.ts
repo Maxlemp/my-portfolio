@@ -3,7 +3,6 @@ import { Experience, SkillCategory, NavLink } from '../models/portfolio.model';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
-
   getNavLinks(): NavLink[] {
     return [
       { label: 'About', href: '#about' },
@@ -16,55 +15,69 @@ export class PortfolioService {
   getExperiences(): Experience[] {
     return [
       {
-        role: 'Software Developer',
-        company: 'AdvyTeam',
-        location: 'Lac 1, Tunisia',
-        period: 'Oct. 2024 – Jul. 2025',
+        role: 'Frontend Angular Developer',
+        company: 'ADDINN Group',
+        location: 'Tunis, Tunisia',
+        period: 'Oct. 2023 – Present',
         type: 'full-time',
         projects: [
           {
-            name: 'PeoplMap',
+            name: 'FreightSure TMS',
             bullets: [
-              'Engineered a modular React.js frontend with real-time collaboration using WebSocket, Socket.IO, and LiveKit.',
-              'Implemented backend synchronization and REST APIs with Node.js/Express for consistent multi-user sessions.',
-              'Integrated JWT-based authentication and middleware to secure client-server communication.',
-              'Optimized Redis caching and Socket.IO event handling for low-latency performance under high load.',
-              'Refactored Redux with selective re-rendering, enhancing frontend responsiveness.',
+              'Developed UI for the FreightSure TMS platform with responsive dashboards for fleet monitoring and logistics analytics.',
+              'Integrated real-time WebSocket connections to display live IoT data from vehicle tracking devices.',
+              'Consumed REST APIs and resolved functional/design issues, ensuring optimal performance across modules.',
             ],
           },
           {
-            name: 'PeoplMap Administration',
+            name: 'Digirecouvrement',
             bullets: [
-              'Engineered Django backend for admin dashboard to manage tenants and clients with secure REST APIs.',
-              'Implemented RBAC and Angular routing guards, reducing access issues across user tiers.',
-              'Automated admin workflows with Django/Apache and optimized caching, API endpoints, and DNS.',
-              'Configured Keycloak for centralized authentication and role-based access management.',
+              'Developed a complete workflow management platform for various business processes.',
+              'Created customizable workflows for different operational stages.',
+              'Built an ergonomic and modern interface using Angular to enhance user interactions.',
+              'Enabled activity tracking and interaction monitoring with automated reminders and notifications.',
+            ],
+          },
+          {
+            name: 'Ferplay Services',
+            bullets: [
+              'Built a multi-service home services platform (housekeeping, pressing, gardening, furniture cleaning, alterations, ironing) using Angular.',
+              'Integrated UI/UX designs and implemented booking workflows with real-time appointment scheduling and service tracking.',
+              'Consumed REST APIs for seamless frontend-backend integration and user management.',
+              'Debugged and optimized modules, improving performance and delivering production-ready features on schedule.',
             ],
           },
         ],
-        skills: ['Django', 'DRF', 'Keycloak', 'WebSockets', 'React.js', 'Redux', 'Angular', 'Docker', 'PostgreSQL', 'Node.js', 'LiveKit'],
+        skills: [
+          'Angular',
+          'TypeScript',
+          'RxJS',
+          'NgRx',
+          'WebSockets',
+          'REST APIs',
+          'NX Monorepo',
+          'Docker',
+          'Keycloak',
+          'Tailwind CSS',
+        ],
       },
       {
-        role: 'Backend Developer Intern',
-        company: 'Digitalberry',
-        location: 'Lac 2, Tunisia',
-        period: 'Feb. 2024 – Jun. 2024',
+        role: 'Full Stack Developer Intern',
+        company: 'IJENI',
+        location: 'Tunis, Tunisia',
+        period: 'Feb. 2023 – Jun. 2023',
         type: 'intern',
         projects: [
           {
-            name: 'Microservices Platform',
+            name: 'Real-Time Chat Application',
             bullets: [
-              'Architected and deployed 5+ Django microservices with independent scaling and service isolation.',
-              'Containerized the entire application stack with Docker and Docker Compose, reducing deployment time.',
-              'Built a WebSocket-based chat system with image sharing across distributed microservices.',
-              'Implemented Celery task scheduling with Redis broker and real-time monitoring via Flower dashboard.',
-              'Designed JWT-based authentication with RBAC to secure all APIs, adhering to OWASP principles.',
-              'Created RESTful APIs for 5 business domains ensuring inter-service data consistency.',
-              'Integrated Prometheus, RedisInsight, and custom metrics for real-time system monitoring.',
+              'Designed and developed a real-time chat application using Angular, Node.js, Express.js, and MongoDB.',
+              'Implemented WebSocket connections via Socket.io for real-time communication between users.',
+              'Facilitated instant messaging capabilities with efficient frontend-backend integration.',
             ],
           },
         ],
-        skills: ['Django', 'DRF', 'PostgreSQL', 'Angular', 'Redis', 'Docker', 'Git', 'Celery', 'Prometheus'],
+        skills: ['Angular', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'WebSockets'],
       },
     ];
   }
@@ -72,43 +85,55 @@ export class PortfolioService {
   getSkillCategories(): SkillCategory[] {
     return [
       {
-        label: 'Backend',
-        skills: [
-          { name: 'Python', icon: 'python', category: 'backend' },
-          { name: 'Django', icon: 'django', category: 'backend' },
-          { name: 'Node.js', icon: 'nodejs', category: 'backend' },
-          { name: 'Spring Boot', icon: 'spring', category: 'backend' },
-          { name: 'Java', icon: 'java', category: 'backend' },
-          { name: 'TypeScript', icon: 'typescript', category: 'backend' },
-        ],
-      },
-      {
         label: 'Frontend',
         skills: [
           { name: 'Angular', icon: 'angular', category: 'frontend' },
           { name: 'React.js', icon: 'react', category: 'frontend' },
+          { name: 'TypeScript', icon: 'typescript', category: 'frontend' },
           { name: 'JavaScript', icon: 'javascript', category: 'frontend' },
           { name: 'Tailwind CSS', icon: 'tailwind', category: 'frontend' },
+          { name: 'HTML5', icon: 'html5', category: 'frontend' },
+          { name: 'SCSS', icon: 'scss', category: 'frontend' },
         ],
       },
       {
-        label: 'Infrastructure & Cloud',
+        label: 'Backend',
+        skills: [
+          { name: 'Node.js', icon: 'nodejs', category: 'backend' },
+          { name: 'NestJS', icon: 'nestjs', category: 'backend' },
+          { name: 'Express.js', icon: 'express', category: 'backend' },
+          { name: 'Java', icon: 'java', category: 'backend' },
+          { name: 'Python', icon: 'python', category: 'backend' },
+          { name: 'Spring Boot', icon: 'spring', category: 'backend' },
+        ],
+      },
+      {
+        label: 'State & Real-Time',
+        skills: [
+          { name: 'NgRx', icon: 'ngrx', category: 'state' },
+          { name: 'RxJS', icon: 'rxjs', category: 'state' },
+          { name: 'Socket.io', icon: 'socketio', category: 'state' },
+          { name: 'WebSockets', icon: 'websockets', category: 'state' },
+        ],
+      },
+      {
+        label: 'Infrastructure & DevOps',
         skills: [
           { name: 'Docker', icon: 'docker', category: 'infra' },
           { name: 'Kubernetes', icon: 'kubernetes', category: 'infra' },
-          { name: 'Apache Kafka', icon: 'kafka', category: 'infra' },
-          { name: 'Redis', icon: 'redis', category: 'infra' },
           { name: 'Keycloak', icon: 'keycloak', category: 'infra' },
-          { name: 'Prometheus', icon: 'prometheus', category: 'infra' },
-          { name: 'Grafana', icon: 'grafana', category: 'infra' },
+          { name: 'GitLab', icon: 'gitlab', category: 'infra' },
+          { name: 'GitHub', icon: 'github', category: 'infra' },
+          { name: 'NX Monorepo', icon: 'nx', category: 'infra' },
         ],
       },
       {
         label: 'Databases',
         skills: [
-          { name: 'PostgreSQL', icon: 'postgresql', category: 'db' },
           { name: 'MongoDB', icon: 'mongodb', category: 'db' },
+          { name: 'PostgreSQL', icon: 'postgresql', category: 'db' },
           { name: 'MySQL', icon: 'mysql', category: 'db' },
+          { name: 'Oracle', icon: 'oracle', category: 'db' },
         ],
       },
     ];
@@ -116,26 +141,33 @@ export class PortfolioService {
 
   getSkillIconUrl(icon: string): string {
     const iconMap: Record<string, string> = {
-      python: 'https://img.icons8.com/?size=48&id=13441&format=png&color=ffffff',
-      django: 'https://img.icons8.com/?size=48&id=qV-JzWYl9dzP&format=png',
-      nodejs: 'https://img.icons8.com/?size=48&id=hsPbhkOH4FMe&format=png',
-      spring: 'https://img.icons8.com/?size=48&id=90519&format=png',
-      java: 'https://img.icons8.com/?size=48&id=GPfHz0SM85FX&format=png&color=ffffff',
-      typescript: 'https://img.icons8.com/?size=48&id=uJM6fQYqDaZK&format=png',
       angular: 'https://img.icons8.com/?size=48&id=6SWtW8hxZWSo&format=png',
       react: 'https://img.icons8.com/?size=48&id=asWSSTBrDlTW&format=png',
+      typescript: 'https://img.icons8.com/?size=48&id=uJM6fQYqDaZK&format=png',
       javascript: 'https://img.icons8.com/?size=48&id=108784&format=png',
       tailwind: 'https://img.icons8.com/?size=48&id=CIAZz2CYc6Kc&format=png',
+      html5: 'https://img.icons8.com/?size=48&id=20909&format=png',
+      scss: 'https://img.icons8.com/?size=48&id=QBqFNfPPB2Kx&format=png',
+      nodejs: 'https://img.icons8.com/?size=48&id=hsPbhkOH4FMe&format=png',
+      nestjs: 'https://img.icons8.com/?size=48&id=9ESZMOeUioJS&format=png',
+      express: 'https://img.icons8.com/?size=48&id=kg46nzoJrmTR&format=png&color=ffffff',
+      java: 'https://img.icons8.com/?size=48&id=GPfHz0SM85FX&format=png&color=ffffff',
+      python: 'https://img.icons8.com/?size=48&id=13441&format=png&color=ffffff',
+      spring: 'https://img.icons8.com/?size=48&id=90519&format=png',
+      ngrx: 'https://img.icons8.com/?size=48&id=6SWtW8hxZWSo&format=png',
+      rxjs: 'https://img.icons8.com/?size=48&id=asWSSTBrDlTW&format=png',
+      socketio: 'https://img.icons8.com/?size=48&id=bzf0DqjXFHIW&format=png&color=ffffff',
+      websockets: 'https://img.icons8.com/?size=48&id=106836&format=png&color=ffffff',
       docker: 'https://img.icons8.com/?size=48&id=cdYUlRaag9G9&format=png',
       kubernetes: 'https://img.icons8.com/?size=48&id=cvzmaEA4kC0o&format=png',
-      kafka: 'https://img.icons8.com/?size=48&id=fOhLNqGJsUbJ&format=png',
-      redis: 'https://img.icons8.com/?size=48&id=pHS3eRpynIRQ&format=png',
       keycloak: 'https://img.icons8.com/fluency/48/key-cloak.png',
-      prometheus: 'https://img.icons8.com/?size=48&id=lOqoeP2Zy02f&format=png',
-      grafana: 'https://img.icons8.com/?size=48&id=9uVrNMu3Zx1K&format=png',
-      postgresql: 'https://img.icons8.com/?size=48&id=38561&format=png',
+      gitlab: 'https://img.icons8.com/?size=48&id=34886&format=png',
+      github: 'https://img.icons8.com/?size=48&id=AZOZNnY73haj&format=png',
+      nx: 'https://img.icons8.com/?size=48&id=9ESZMOeUioJS&format=png',
       mongodb: 'https://img.icons8.com/?size=48&id=8rKdRqZFLurS&format=png',
+      postgresql: 'https://img.icons8.com/?size=48&id=38561&format=png',
       mysql: 'https://img.icons8.com/?size=48&id=9nLaR5KFGjN0&format=png',
+      oracle: 'https://img.icons8.com/?size=48&id=39913&format=png',
     };
     return iconMap[icon] || '';
   }

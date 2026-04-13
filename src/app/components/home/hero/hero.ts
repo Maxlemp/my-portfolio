@@ -16,7 +16,12 @@ export class HeroComponent implements OnInit, OnDestroy {
   activeOs = signal<OsInfo | null>(null);
   osList = OS_INFO;
 
-  private words = ['Backend Engineer', 'Cloud Enthusiast', 'DevOps Explorer', 'Fullstack Developer'];
+  private words = [
+    'Fullstack Developer',
+    'Angular Specialist',
+    'DevOps Explorer',
+    'UI/UX Enthusiast',
+  ];
   private wordIndex = 0;
   private charIndex = 0;
   private isDeleting = false;
@@ -25,7 +30,7 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.type();
-    this.cursorTimer = setInterval(() => this.showCursor = !this.showCursor, 530);
+    this.cursorTimer = setInterval(() => (this.showCursor = !this.showCursor), 530);
   }
 
   ngOnDestroy(): void {
@@ -43,13 +48,23 @@ export class HeroComponent implements OnInit, OnDestroy {
       this.charIndex++;
     }
     let delay = this.isDeleting ? 60 : 100;
-    if (!this.isDeleting && this.charIndex === current.length) { delay = 2000; this.isDeleting = true; }
-    else if (this.isDeleting && this.charIndex === 0) { this.isDeleting = false; this.wordIndex = (this.wordIndex + 1) % this.words.length; delay = 400; }
+    if (!this.isDeleting && this.charIndex === current.length) {
+      delay = 2000;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.wordIndex = (this.wordIndex + 1) % this.words.length;
+      delay = 400;
+    }
     this.typeTimer = setTimeout(() => this.type(), delay);
   }
 
-  openOs(os: OsInfo): void { this.activeOs.set(os); }
-  closeOs(): void { this.activeOs.set(null); }
+  openOs(os: OsInfo): void {
+    this.activeOs.set(os);
+  }
+  closeOs(): void {
+    this.activeOs.set(null);
+  }
 
   scrollTo(id: string): void {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });

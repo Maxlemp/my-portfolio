@@ -11,13 +11,20 @@ import { CommonModule } from '@angular/common';
 export class AboutComponent {
   stats = [
     { value: '2+', label: 'Years Experience' },
-    { value: '1K+', label: 'Users Served' },
-    { value: '5+', label: 'Microservices Built' },
-    { value: 'OCI', label: 'Certified' },
+    { value: '3+', label: 'Enterprise Projects' },
+    { value: '10+', label: 'Technologies Mastered' },
+    { value: 'META', label: 'Certified' },
+    { value: 'AWS', label: 'Certified' },
   ];
 
   certifications = [
-    { name: 'Oracle Cloud Infrastructure Foundations Associate', issuer: 'Oracle', year: '2024' },
-    { name: 'Engineering Degree - Cloud Computing', issuer: 'ESPRIT', year: 'In Progress' },
+    { name: 'React & React Native', issuer: 'Meta', year: '2024' },
+    { name: 'AWS Academy Cloud Foundations', issuer: 'Amazon Web Services', year: '2024' },
+    { name: 'Responsive Web Design', issuer: 'FreeCodeCamp', year: '2024' },
+    {
+      name: "Master's in Software Engineering & DevOps",
+      issuer: 'Horizon School of Digital Technologies',
+      year: '2025',
+    },
   ];
 }

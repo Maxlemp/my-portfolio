@@ -16,14 +16,24 @@ export class ContactComponent {
   // Honeypot — intentionally not bound to a visible field
   honeypot = ''; // honeypot — bots fill this, humans don't
 
-  state    = signal<FormState>('idle');
+  state = signal<FormState>('idle');
   errorMsg = signal('');
 
   links = [
-    { label: 'GitHub',   href: 'https://github.com/scriptsl0th',        handle: '@scriptsl0th',          icon: 'github'   },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/dridi-aziz',     handle: 'Aziz Dridi',            icon: 'linkedin' },
-    { label: 'Email',    href: 'mailto:dridiaziz28@gmail.com',           handle: 'dridiaziz28@gmail.com', icon: 'mail'     },
-    { label: 'Location', href: '#',                                       handle: 'Tunis, Tunisia',        icon: 'location' },
+    { label: 'GitHub', href: 'https://github.com/Maxlemp', handle: '@Maxlemp', icon: 'github' },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/mohamed-fahd-benamara/',
+      icon: 'linkedin',
+      handle: 'mohamed-fahd-benamara',
+    },
+    {
+      label: 'Email',
+      href: 'mailto:mohamedfahdbenamara02@gmail.com',
+      icon: 'mail',
+      handle: 'mohamedfahdbenamara02@gmail.com',
+    },
+    { label: 'Location', href: '#', handle: 'Tunis, Tunisia', icon: 'location' },
   ];
 
   async onSubmit(): Promise<void> {
@@ -38,8 +48,8 @@ export class ContactComponent {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:    name.trim(),
-          email:   email.trim(),
+          name: name.trim(),
+          email: email.trim(),
           message: message.trim(),
           website: this.honeypot, // honeypot — always empty for real users
         }),
