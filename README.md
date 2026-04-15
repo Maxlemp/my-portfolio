@@ -1,4 +1,4 @@
-# Aziz Dridi — Portfolio (Angular 21 + Vercel Serverless)
+# Mohamed Fahd BenAmara — Portfolio (Angular 21 + Vercel Serverless)
 
 Modern dark-theme developer portfolio deployed as a static Angular frontend + Vercel serverless API functions.
 
@@ -38,18 +38,18 @@ Vercel auto-detects the config from `vercel.json`. No framework preset needed �
 
 In **Vercel → Project → Settings → Environment Variables**, add:
 
-| Key | Value |
-|-----|-------|
-| `SPOTIFY_CLIENT_ID` | from Spotify dashboard |
-| `SPOTIFY_CLIENT_SECRET` | from Spotify dashboard |
-| `SPOTIFY_REFRESH_TOKEN` | see Spotify Setup below |
-| `SPOTIFY_REDIRECT_URI` | `https://your-domain.vercel.app/callback` |
-| `SMTP_HOST` | `smtp-relay.brevo.com` |
-| `SMTP_PORT` | `587` |
-| `SMTP_USER` | from Brevo SMTP settings |
-| `SMTP_PASS` | from Brevo SMTP settings |
-| `SMTP_FROM_EMAIL` | verified sender address |
-| `SMTP_FROM_NAME` | `Aziz Dridi` |
+| Key                     | Value                                     |
+| ----------------------- | ----------------------------------------- |
+| `SPOTIFY_CLIENT_ID`     | from Spotify dashboard                    |
+| `SPOTIFY_CLIENT_SECRET` | from Spotify dashboard                    |
+| `SPOTIFY_REFRESH_TOKEN` | see Spotify Setup below                   |
+| `SPOTIFY_REDIRECT_URI`  | `https://your-domain.vercel.app/callback` |
+| `SMTP_HOST`             | `smtp-relay.brevo.com`                    |
+| `SMTP_PORT`             | `587`                                     |
+| `SMTP_USER`             | from Brevo SMTP settings                  |
+| `SMTP_PASS`             | from Brevo SMTP settings                  |
+| `SMTP_FROM_EMAIL`       | verified sender address                   |
+| `SMTP_FROM_NAME`        | `Mohamed Fahd BenAmara`                   |
 
 Click **Deploy** — done. Vercel builds Angular and deploys the API functions automatically.
 

@@ -7,7 +7,7 @@ const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const RATE_MAX = 3;
 
 function isRateLimited(ip: string): boolean {
-  const now   = Date.now();
+  const now = Date.now();
   const entry = rateMap.get(ip);
   if (!entry || now > entry.resetAt) {
     rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
@@ -58,12 +58,12 @@ router.post('/', async (req: Request, res: Response) => {
 
   // ── SMTP config ─────────────────────────────────────────────────────────
   const {
-    SMTP_HOST       = 'smtp-relay.brevo.com',
-    SMTP_PORT       = '587',
+    SMTP_HOST = 'smtp-relay.brevo.com',
+    SMTP_PORT = '587',
     SMTP_USER,
     SMTP_PASS,
     SMTP_FROM_EMAIL,
-    SMTP_FROM_NAME  = 'Aziz Dridi',
+    SMTP_FROM_NAME = 'Mohamed Fahd BenAmara',
   } = process.env;
 
   if (!SMTP_USER || !SMTP_PASS || !SMTP_FROM_EMAIL) {
@@ -87,7 +87,7 @@ router.post('/', async (req: Request, res: Response) => {
 
     await transporter.sendMail({
       from,
-      to:      SMTP_FROM_EMAIL,
+      to: SMTP_FROM_EMAIL,
       replyTo: `"${name}" <${email}>`,
       subject: `[Portfolio] New message from ${name}`,
       html: `
@@ -105,18 +105,17 @@ router.post('/', async (req: Request, res: Response) => {
 
     await transporter.sendMail({
       from,
-      to:      email,
+      to: email,
       subject: `Got your message, ${name} 👋`,
-      html:    buildAutoReplyHtml(name),
+      html: buildAutoReplyHtml(name),
     });
 
     return res.json({ ok: true });
-
   } catch (err: any) {
     console.error('[Contact] SMTP error:', {
-      message:  err?.message,
-      code:     err?.code,
-      command:  err?.command,
+      message: err?.message,
+      code: err?.code,
+      command: err?.command,
       response: err?.response,
     });
 
@@ -162,7 +161,7 @@ function buildAutoReplyHtml(senderName: string): string {
         </div>
       </div>
       <div style="margin-top:28px;text-align:center;">
-        <a href="https://www.azizdridi.tn"
+        <a href="https://www.medfahdbenamara.tn/"
            style="display:inline-block;background:#00e5a0;color:#0a0a0a;font-family:'Courier New',monospace;font-size:12px;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:6px;letter-spacing:0.06em;">
           VIEW MY WORK →
         </a>

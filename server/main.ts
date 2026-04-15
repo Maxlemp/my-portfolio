@@ -4,8 +4,8 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import spotifyRouter  from './routes/api/spotify/now-playing';
-import contactRouter  from './routes/api/contact/index';
+import spotifyRouter from './routes/api/spotify/now-playing';
+import contactRouter from './routes/api/contact/index';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,14 +16,16 @@ const isProd = process.env.NODE_ENV === 'production';
 
 // ── Middleware ──────────────────────────────────────────
 app.use(express.json());
-app.use(cors({
-  origin: isProd ? 'https://www.azizdridi.tn' : 'http://localhost:4200',
-  methods: ['GET', 'POST'],
-}));
+app.use(
+  cors({
+    origin: isProd ? 'https://www.medfahdbenamara.tn/' : 'http://localhost:4200',
+    methods: ['GET', 'POST'],
+  }),
+);
 
 // ── API routes ──────────────────────────────────────────
 app.use('/api/spotify/now-playing', spotifyRouter);
-app.use('/api/contact',             contactRouter);
+app.use('/api/contact', contactRouter);
 
 if (!isProd) {
   app.get('/callback', (req, res) => {
@@ -91,8 +93,10 @@ if (isProd) {
 
 const server = app.listen(PORT, () => {
   console.log(`\n🚀 Server running on http://${HOST}:${PORT}`);
-  console.log(`   Spotify : ${process.env.SPOTIFY_CLIENT_ID ? '✓ configured' : '✗ not configured'}`);
-  console.log(`   Brevo   : ${process.env.SMTP_USER          ? '✓ configured' : '✗ not configured'}\n`);
+  console.log(
+    `   Spotify : ${process.env.SPOTIFY_CLIENT_ID ? '✓ configured' : '✗ not configured'}`,
+  );
+  console.log(`   Brevo   : ${process.env.SMTP_USER ? '✓ configured' : '✗ not configured'}\n`);
 });
 
 server.on('error', (err: NodeJS.ErrnoException) => {

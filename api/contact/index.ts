@@ -6,10 +6,10 @@ import nodemailer from 'nodemailer';
 // For production-grade limiting, swap with Upstash Redis KV.
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
-const RATE_MAX       = 3;               // max 3 submissions per IP per hour
+const RATE_MAX = 3; // max 3 submissions per IP per hour
 
 function isRateLimited(ip: string): boolean {
-  const now  = Date.now();
+  const now = Date.now();
   const entry = rateMap.get(ip);
 
   if (!entry || now > entry.resetAt) {
@@ -55,7 +55,7 @@ function buildAutoReplyHtml(senderName: string): string {
         </div>
       </div>
       <div style="margin-top:28px;text-align:center;">
-        <a href="https://www.azizdridi.tn"
+        <a href="https://www.medfahdbenamara.tn/"
            style="display:inline-block;background:#00e5a0;color:#0a0a0a;font-family:'Courier New',monospace;font-size:12px;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:6px;letter-spacing:0.06em;">
           VIEW MY WORK →
         </a>
@@ -77,12 +77,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST')   return res.status(405).end();
+  if (req.method !== 'POST') return res.status(405).end();
 
   // ── Rate limiting ─────────────────────────────────────────────────────────
   const ip =
     (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ||
-    req.headers['x-real-ip'] as string ||
+    (req.headers['x-real-ip'] as string) ||
     'unknown';
 
   if (isRateLimited(ip)) {
@@ -120,12 +120,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // ── SMTP config check ─────────────────────────────────────────────────────
   const {
-    SMTP_HOST       = 'smtp-relay.brevo.com',
-    SMTP_PORT       = '587',
+    SMTP_HOST = 'smtp-relay.brevo.com',
+    SMTP_PORT = '587',
     SMTP_USER,
     SMTP_PASS,
     SMTP_FROM_EMAIL,
-    SMTP_FROM_NAME  = 'Aziz Dridi',
+    SMTP_FROM_NAME = 'Mohamed Fahd BenAmara',
   } = process.env;
 
   if (!SMTP_USER || !SMTP_PASS || !SMTP_FROM_EMAIL) {
@@ -139,10 +139,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: Number(SMTP_PORT),
-      secure: false,          // STARTTLS on port 587
-      requireTLS: true,       // Brevo requires TLS upgrade
+      secure: false, // STARTTLS on port 587
+      requireTLS: true, // Brevo requires TLS upgrade
       auth: {
-        type: 'LOGIN',        // Brevo uses LOGIN, not PLAIN
+        type: 'LOGIN', // Brevo uses LOGIN, not PLAIN
         user: SMTP_USER,
         pass: SMTP_PASS,
       },
@@ -156,10 +156,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const from = `"${SMTP_FROM_NAME}" <${SMTP_FROM_EMAIL}>`;
 
-    // 1) Notify Aziz
+    // 1) Notify Fahd
     await transporter.sendMail({
       from,
-      to:      SMTP_FROM_EMAIL,
+      to: SMTP_FROM_EMAIL,
       replyTo: `"${name}" <${email}>`,
       subject: `[Portfolio] New message from ${name}`,
       html: `
@@ -178,18 +178,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // 2) Auto-reply to sender
     await transporter.sendMail({
       from,
-      to:      email,
+      to: email,
       subject: `Got your message, ${name} 👋`,
-      html:    buildAutoReplyHtml(name),
+      html: buildAutoReplyHtml(name),
     });
 
     return res.json({ ok: true });
-
   } catch (err: any) {
     // Log the real error — visible in Vercel function logs
     console.error('[Contact] SMTP error:', {
       message: err?.message,
-      code:    err?.code,
+      code: err?.code,
       command: err?.command,
       response: err?.response,
     });

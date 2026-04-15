@@ -62,7 +62,7 @@ function buildAutoReplyHtml(senderName: string): string {
 
       <!-- CTA -->
       <div style="margin-top:28px;text-align:center;">
-        <a href="https://www.azizdridi.tn"
+        <a href="https://www.medfahdbenamara.tn/"
            style="display:inline-block;background:#00e5a0;color:#0a0a0a;font-family:'Courier New',monospace;font-size:12px;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:6px;letter-spacing:0.06em;">
           VIEW MY WORK →
         </a>
@@ -91,7 +91,7 @@ export async function sendContactEmails(payload: ContactPayload): Promise<void> 
   const { name, email, message } = payload;
   const from = `"${process.env.SMTP_FROM_NAME}" <${process.env.SMTP_FROM_EMAIL}>`;
 
-  // 1) Notify Aziz
+  // 1) Notify Fahd
   await transporter.sendMail({
     from,
     to: process.env.SMTP_FROM_EMAIL,
