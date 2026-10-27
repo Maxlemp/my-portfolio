@@ -71,7 +71,7 @@ function buildAutoReplyHtml(senderName: string): string {
     </div>
 
     <p style="margin:20px 0 0;text-align:center;color:#333;font-size:10px;">
-      © ${new Date().getFullYear()} Dridi · This is an automated reply, please don't respond to this email.
+      © ${new Date().getFullYear()} Mohamed Fahd BenAmara · This is an automated reply, please don't respond to this email.
     </p>
 
   </div>

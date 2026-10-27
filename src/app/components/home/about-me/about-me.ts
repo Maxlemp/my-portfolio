@@ -29,7 +29,7 @@ export class AboutMeComponent implements OnInit {
 
   get stats() {
     return [
-      { value: '2+', label: 'Years Experience' },
+      { value: '3+', label: 'Years Experience' },
       { value: '3+', label: 'Enterprise Projects' },
       { value: String(this.github.stats().followers), label: 'GitHub Followers' },
       { value: String(this.github.stats().repos), label: 'Public Repos' },

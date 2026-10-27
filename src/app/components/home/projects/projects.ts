@@ -25,6 +25,32 @@ export class ProjectsComponent {
 
   projects: Project[] = [
     {
+      category: 'Consulting Platform',
+      title: 'ConsultHub',
+      description:
+        'End-to-end platform connecting clients with vetted consultants. Features availability management, Stripe & PayPal payment processing, real-time messaging, and a multi-role admin panel.',
+      features: [
+        'Dual-role JWT auth: clients & consultants',
+        'Stripe + PayPal payment gateway integration',
+        'Celery-powered async booking & notifications',
+        'Consultant validation workflow with admin panel',
+        'Advanced search with filters & ratings',
+      ],
+      technologies: [
+        'Django 5',
+        'Angular',
+        'PostgreSQL',
+        'Celery',
+        'Redis',
+        'JWT',
+        'Docker',
+        'Tailwind CSS',
+        'Stripe',
+      ],
+      url: undefined,
+      isPrivate: false,
+    },
+    {
       category: 'Transport Management System',
       title: 'FreightSure TMS',
       description:

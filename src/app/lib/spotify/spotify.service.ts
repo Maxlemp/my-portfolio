@@ -68,21 +68,7 @@ export class SpotifyService {
         this.track.set(NOT_PLAYING);
       }
     } catch {
-      // Dev mode / no backend: keep last state
-      // Remove the mock below once you hook up the real API
-      this.track.set(MOCK_TRACK);
+      this.track.set(NOT_PLAYING);
     }
   }
 }
-
-/** Remove this once real Spotify API is connected */
-const MOCK_TRACK: SpotifyTrack = {
-  isPlaying: true,
-  title: 'Blinding Lights',
-  artist: 'The Weeknd',
-  album: 'After Hours',
-  albumArt: 'https://i.scdn.co/image/ab67616d0000b273ef017e899c0547a1958731c2',
-  songUrl: 'https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b',
-  progressMs: 97000,
-  durationMs: 200000,
-};

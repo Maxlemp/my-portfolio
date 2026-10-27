@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 interface ExpProject {
   name: string;
+  period: string;
   bullets: string[];
 }
 interface Experience {
@@ -30,13 +31,33 @@ export class ExperienceComponent implements OnInit {
     this.experiences = [
       {
         role: 'Frontend Angular Developer',
-        company: 'ADDINN Group',
+        company: 'ABRIDIA',
         location: 'Tunis, Tunisia',
-        period: 'Oct. 2023 – Present',
+        period: 'Sept. 2026 – Present',
         type: 'full-time',
         projects: [
           {
             name: 'FreightSure TMS',
+            period: 'Sept. 2026 – Present',
+            bullets: [
+              'Continued development of the FreightSure TMS platform after the project moved from ADDINN to ABRIDIA, ensuring continuity of delivery.',
+              'Built a fuel-management dashboard with KPI charts, a real-time notification center, and a simplified repair-order workflow with OCR document intake.',
+              "Led a platform-wide UI harmonisation and the migration of the frontend repositories to the company's GitLab.",
+            ],
+          },
+        ],
+        skills: ['Angular', 'TypeScript', 'RxJS', 'WebSockets', 'REST APIs', 'OCR', 'GitLab', 'Tailwind CSS'],
+      },
+      {
+        role: 'Frontend Angular Developer',
+        company: 'ADDINN Group',
+        location: 'Tunis, Tunisia',
+        period: 'Oct. 2023 – Aug. 2026',
+        type: 'full-time',
+        projects: [
+          {
+            name: 'FreightSure TMS',
+            period: 'Oct. 2023 – Aug. 2026',
             bullets: [
               'Developed UI for the FreightSure TMS platform with responsive dashboards for fleet monitoring and logistics analytics.',
               'Integrated real-time WebSocket connections to display live IoT data from vehicle tracking devices.',
@@ -45,6 +66,7 @@ export class ExperienceComponent implements OnInit {
           },
           {
             name: 'Ferplay Services',
+            period: 'Sept. 2025 – Oct. 2025',
             bullets: [
               'Built a multi-service home services platform (housekeeping, pressing, gardening, furniture cleaning, alterations, ironing) using Angular.',
               'Integrated UI/UX designs and implemented booking workflows with real-time appointment scheduling and service tracking.',
@@ -54,11 +76,13 @@ export class ExperienceComponent implements OnInit {
           },
           {
             name: 'Digirecouvrement',
+            period: 'Feb. 2025 – Aug. 2025',
             bullets: [
               'Developed a complete workflow management platform for various business processes.',
               'Created customizable workflows for different operational stages.',
               'Built an ergonomic and modern interface using Angular to enhance user interactions.',
               'Enabled activity tracking and interaction monitoring with automated reminders and notifications.',
+              'Provided a robust solution featuring advanced management capabilities, an interactive dashboard, and comprehensive documentation.',
             ],
           },
         ],
@@ -76,7 +100,7 @@ export class ExperienceComponent implements OnInit {
         ],
       },
       {
-        role: 'Full Stack Developer Intern',
+        role: 'End-of-Studies Intern',
         company: 'IJENI',
         location: 'Tunis, Tunisia',
         period: 'Feb. 2023 – Jun. 2023',
@@ -84,10 +108,10 @@ export class ExperienceComponent implements OnInit {
         projects: [
           {
             name: 'Real-Time Chat Application',
+            period: 'Feb. 2023 – Jun. 2023',
             bullets: [
               'Designed and developed a real-time chat application using Angular, Node.js, Express.js, and MongoDB.',
-              'Implemented WebSocket connections via Socket.io for real-time communication between users.',
-              'Facilitated instant messaging capabilities with efficient frontend-backend integration.',
+              'Facilitated instant communication between users through efficient messaging capabilities.',
             ],
           },
         ],

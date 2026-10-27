@@ -33,7 +33,12 @@ export class ContactComponent {
       icon: 'mail',
       handle: 'mohamedfahdbenamara02@gmail.com',
     },
-    { label: 'Location', href: '#', handle: 'Tunis, Tunisia', icon: 'location' },
+    {
+      label: 'Location',
+      href: 'https://www.google.com/maps/place/Tunis,+Tunisia',
+      handle: 'Tunis, Tunisia',
+      icon: 'location',
+    },
   ];
 
   async onSubmit(): Promise<void> {
@@ -55,7 +60,7 @@ export class ContactComponent {
         }),
       });
 
-      const body = await res.json();
+      const body = await res.json().catch(() => ({}));
 
       if (res.status === 429) {
         this.errorMsg.set('Slow down — max 3 messages per hour.');

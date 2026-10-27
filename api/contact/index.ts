@@ -8,6 +8,15 @@ const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const RATE_MAX = 3; // max 3 submissions per IP per hour
 
+function escapeHtml(value: string): string {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const entry = rateMap.get(ip);
@@ -62,7 +71,7 @@ function buildAutoReplyHtml(senderName: string): string {
       </div>
     </div>
     <p style="margin:20px 0 0;text-align:center;color:#333;font-size:10px;">
-      © ${new Date().getFullYear()} Dridi · This is an automated reply, please don't respond to this email.
+      © ${new Date().getFullYear()} Mohamed Fahd BenAmara · This is an automated reply, please don't respond to this email.
     </p>
   </div>
 </div>
@@ -166,12 +175,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <div style="font-family:monospace;background:#0a0a0a;color:#f0f0f0;padding:24px;border-radius:8px;">
           <p style="color:#00e5a0;margin:0 0 16px;font-size:14px;">📬 New contact form submission</p>
           <table style="border-collapse:collapse;width:100%;">
-            <tr><td style="color:#888;padding:4px 0;font-size:13px;width:80px;">Name</td><td style="color:#f0f0f0;font-size:13px;">${name}</td></tr>
-            <tr><td style="color:#888;padding:4px 0;font-size:13px;">Email</td><td style="font-size:13px;"><a href="mailto:${email}" style="color:#00e5a0;">${email}</a></td></tr>
+            <tr><td style="color:#888;padding:4px 0;font-size:13px;width:80px;">Name</td><td style="color:#f0f0f0;font-size:13px;">${escapeHtml(name)}</td></tr>
+            <tr><td style="color:#888;padding:4px 0;font-size:13px;">Email</td><td style="font-size:13px;"><a href="mailto:${escapeHtml(email)}" style="color:#00e5a0;">${escapeHtml(email)}</a></td></tr>
             <tr><td style="color:#888;padding:4px 0;font-size:13px;">IP</td><td style="color:#555;font-size:12px;">${ip}</td></tr>
           </table>
           <p style="color:#888;font-size:13px;margin:16px 0 6px;">Message:</p>
-          <blockquote style="border-left:2px solid #00e5a0;margin:0;padding:8px 16px;color:#aaa;font-size:13px;white-space:pre-wrap;">${message.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</blockquote>
+          <blockquote style="border-left:2px solid #00e5a0;margin:0;padding:8px 16px;color:#aaa;font-size:13px;white-space:pre-wrap;">${escapeHtml(message)}</blockquote>
         </div>`,
     });
 
@@ -180,7 +189,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from,
       to: email,
       subject: `Got your message, ${name} 👋`,
-      html: buildAutoReplyHtml(name),
+      html: buildAutoReplyHtml(escapeHtml(name)),
     });
 
     return res.json({ ok: true });
